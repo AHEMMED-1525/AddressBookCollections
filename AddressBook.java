@@ -32,8 +32,26 @@ public class AddressBook {
  
 	//main Method
 	public static void main(String[] args) {
-		System.out.println(" Welcome to address book program ");
-		addContact();
+		Scanner obj = new Scanner(System.in);
+		int flag = 1;
+	  while(flag == 1)
+		{
+			System.out.println(" Choose your choice : 1.Add 2.Exit ");
+			int choice = obj.nextInt();
+			switch(choice)
+			{
+			case 1:
+				addContact();
+			break;
+			case 2:
+				flag = 0;
+			break;
+			default:
+				System.out.println("Enter a valid choice");
+				break;
+			}
+		}
+
 		System.out.println(contactList);		
 	}
 	
