@@ -12,6 +12,15 @@ public class AddressBook {
 	{
 		System.out.println(" Enter your first name : ");
 		String firstName = input.nextLine();
+		// No duplicate entries Allow
+		for (int index = 0 ; index < contactList.size(); index ++)
+		{
+			if(firstName.equals(contactList.get(index).getFirstName()))
+			{
+				System.out.println(" The name already exists ");
+				AddressBookSystem.entryOptions();
+			}
+		}
 		System.out.println(" Enter your last name : ");
 		String lastName = input.nextLine();
 		System.out.println(" Enter your city name : ");

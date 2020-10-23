@@ -3,8 +3,13 @@ package com.bridgelabz.addressbook;
 import java.util.Scanner;
 
 public class AddressBookSystem {
-	//main method
+	// Main method
 	public static void main(String[] args) {
+		
+		entryOptions();
+	}
+	// Contact to Create,update,delete method
+	public static void entryOptions() {
 		AddressBook addressBook = new AddressBook();
 		Scanner sc = new Scanner(System.in);
 		int flag = 1 ;
@@ -43,4 +48,5 @@ public class AddressBookSystem {
 		}
 		System.out.println(addressBook.contactList);
 	}
+
 }
