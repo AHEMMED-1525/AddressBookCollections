@@ -24,36 +24,33 @@ public class AddressBook {
 		String phone = input.nextLine();
 		System.out.println(" Enter your email : ");
 		String email = input.nextLine();
-		
-		AddressBookManage addressBook = new AddressBookManage(firstName,lastName,city,state,zip,phone,email);
-		contactList.add(addressBook);			
+		AddressBookManage addressBookSystem = new AddressBookManage(firstName,lastName,city,state,zip,phone,email);
+			contactList.add(addressBookSystem);			
 		
 	}
- 
-	//main Method
-	public static void main(String[] args) {
-		Scanner obj = new Scanner(System.in);
-		int flag = 1;
-	  while(flag == 1)
+// method for editing existing contact
+	public void editContact()
+	{
+		Scanner nameInput = new Scanner(System.in);
+		System.out.println(" Enter the first name ");
+		String fName = nameInput.nextLine();
+		for(int index = 0 ; index < contactList.size(); index++)
 		{
-			System.out.println(" Choose your choice : 1.Add 2.Exit ");
-			int choice = obj.nextInt();
-			switch(choice)
+			if (contactList.get(index).getFirstName().equals(fName))
 			{
-			case 1:
-				addContact();
-			break;
-			case 2:
-				flag = 0;
-			break;
-			default:
-				System.out.println("Enter a valid choice");
-				break;
+				contactList.remove(index);
+				AddressBook addressBook = new AddressBook();
+				addressBook.addContact();				
+			}
+			else
+			{
+				System.out.println(" There is no contact ");
 			}
 		}
-
-		System.out.println(contactList);		
 	}
+ 
+
+	
 	
 
 }
