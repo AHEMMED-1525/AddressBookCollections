@@ -3,6 +3,8 @@ package com.bridgelabz.addressbook;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 public class AddressBook {
 	static List<AddressBookManage> contactList = new ArrayList<>();
 	static Scanner input = new Scanner(System.in);
@@ -87,6 +89,17 @@ public class AddressBook {
 		}
 		
 	}
-	
+	// View a person by his city
+	public void viewPersonByCity()
+	{
+		Scanner cityViewInput = new Scanner(System.in);
+		System.out.println(" Enter the city name you want to get the person details");
+		String city = cityViewInput.nextLine();
+		for (AddressBookManage cityList : contactList)
+		{
+			if ( cityList.getCity().equals(city))
+				System.out.println(cityList);
+		}
+	}
 
 }
