@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 public class AddressBook {
 	static List<AddressBookManage> contactList = new ArrayList<>();
+	AddressBookSystem addressBookSystem = new AddressBookSystem();
 	static Scanner input = new Scanner(System.in);
 
 	//method for adding contacts
@@ -36,7 +37,7 @@ public class AddressBook {
 		System.out.println(" Enter your email : ");
 		String email = input.nextLine();
 		AddressBookManage addressBookSystem = new AddressBookManage(firstName,lastName,city,state,zip,phone,email);
-			contactList.add(addressBookSystem);
+		contactList.add(addressBookSystem);
 	}
 // method for editing existing contact
 	public void editContact()
@@ -150,6 +151,13 @@ public class AddressBook {
 		}
 		count++;
 		System.out.println(" The number of persons from the city " + city + " is " + count);
+	}
+	// sort a person name by using java stream
+	public void sortingByName()
+	{
+		Comparator<AddressBookSystem> sortingNameList = (firstAddressObject , secondAddessObject) -> firstAddressObject.getFirstName().compareTo(secondAddessObject.getFirstName());
+		List<AddressBookSystem> sortedNames = contactList.stream().sorted(sortingNameList).collect(Collectors.toList());
+		System.out.println(sortedNames);
 	}
 
 }
