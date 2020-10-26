@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class AddressBookSystem {
 	// Main method
 	public static void main(String[] args) {
-		
 		entryOptions();
 	}
+
 	// Contact to Create,update,delete method
 	public static void entryOptions() {
 		AddressBook addressBook = new AddressBook();
@@ -16,14 +16,14 @@ public class AddressBookSystem {
 		while(flag == 1)
 		{
 			System.out.println(" Welcome to address book program ");
-			System.out.println(" Select a choice : 1. Add 2.Edit 3.Delete 4.Search 5.View person 6.Exit");
+			System.out.println(" Select a choice : 1. Add 2.Edit 3.Delete 4.Search 5.View person 6.count no.of peoples in same city 7.Exit");
 			int choice = sc.nextInt();
 			switch(choice)
 			{
-				case 1 : 
+				case 1 :
 					addressBook.addContact();
 				break;
-				case 2 : 
+				case 2 :
 					if (addressBook.contactList.isEmpty())
 						 {
 							System.out.println(" Address book is empty ");
@@ -41,21 +41,25 @@ public class AddressBookSystem {
 				break;
 				case 4:
 					addressBook.searchByCity();
-					break;
-				case 5 :  if (addressBook.contactList.isEmpty())
-				  {
-					System.out.println(" Address book is empty ");
-					break;
-				  }
-				  addressBook.viewPersonByCity();
-		break;
-				case 6 :
+				break;
+				case 5 :
+					if (addressBook.contactList.isEmpty())
+				  		{
+							System.out.println(" Address book is empty ");
+							break;
+				  		}
+				  		addressBook.viewPersonByCity();
+				break;
+				case 6:
+						addressBook.countOfPersonByCity();
+				break;
+				case 7 :
 					flag = 0 ;
 				break;
-				default: 
+				default:
 					System.out.println(" Enter a valid choice");
-					break;
-			}		
+				break;
+			}
 		}
 		System.out.println(addressBook.contactList);
 	}
