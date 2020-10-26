@@ -1,10 +1,15 @@
 package com.bridgelabz.addressbook;
-
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
+
 public class AddressBook {
 	static List<AddressBookManage> contactList = new ArrayList<>();
 	AddressBookSystem addressBookSystem = new AddressBookSystem();
@@ -159,5 +164,11 @@ public class AddressBook {
 		List<AddressBookSystem> sortedNames = contactList.stream().sorted(sortingNameList).collect(Collectors.toList());
 		System.out.println(sortedNames);
 	}
-
+	// Sorting by city with Using Stream
+	public void sortingByCity()
+	{
+		Comparator<AddressBookSystem> sortingCityList = (firstAddressObject , secondAddessObject) -> firstAddressObject.getCity().compareTo(secondAddessObject.getCity());
+		List<AddressBookSystem> sortedCity = contactList.stream().sorted(sortingCityList).collect(Collectors.toList());
+		System.out.println(sortedCity);
+	}
 }

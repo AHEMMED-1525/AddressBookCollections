@@ -3,8 +3,8 @@ import java.util.Comparator;
 
 public class SortingByName implements Comparator<AddressBookSystem> {
 	 @Override
-    public int compare(AddressBookSystem firstperson, AddressBookSystem nextperson)
+    public int compare(AddressBookSystem person1, AddressBookSystem person2)
 	{
-        return (firstperson.getFirstName()).compareTo(nextperson.getFirstName());
+        return (person1.getFirstName()).compareTo(person2.getFirstName());
     }
 }

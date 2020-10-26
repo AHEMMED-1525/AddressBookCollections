@@ -59,7 +59,7 @@ public class AddressBookSystem {
 		while(flag == 1)
 		{
 			System.out.println(" Welcome to address book program ");
-			System.out.println(" Select a choice : 1. Add 2.Edit 3.Delete 4.Search 5.View person 6.count no.of peoples in same city 7.Exit");
+			System.out.println(" Select a choice : 1. Add 2.Edit 3.Delete 4.Search 5.View person 6.count no.of peoples in same city 7.sort by name 8. sort by city name 9.Exit");
 			int choice = sc.nextInt();
 			switch(choice)
 			{
@@ -97,7 +97,19 @@ public class AddressBookSystem {
 						addressBook.countOfPersonByCity();
 				break;
 				case 7 :
-					flag = 0 ;
+					 if (addressBook.contactList.isEmpty())
+				  		{
+							System.out.println(" Address book is empty ");
+							break;
+				  		}
+						addressBook.sortingByName();
+				break;
+				case 8 :
+							addressBook.sortingByCity();
+				break;
+				case 9 :
+							registerEntry();
+							flag = 0;
 				break;
 				default:
 					System.out.println(" Enter a valid choice");
